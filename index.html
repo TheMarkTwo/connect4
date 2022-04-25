@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <title>Connect4</title>
+</head>
+<body>
+    <table cellspacing="10" id="resetka">
+        <script>
+            tbl = document.getElementById("resetka");
+            for (let i = 0; i < 6; i++) {
+                const tr = tbl.insertRow();
+                for (let j = 0; j < 7; j++){
+                    const td = tr.insertCell();
+                    td.setAttribute('id', `a${i}/${j}`)
+                    if (i == 5) {
+                        td.setAttribute('onclick', 'selectCell('+ j +')');
+                        td.style.cssText = 'cursor: pointer;';
+                    }
+                }
+            }
+        </script>
+    </table>
+</body>
+</html>

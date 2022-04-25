@@ -1,0 +1,24 @@
+table{
+    margin: 0 auto;
+    background-color: #0D98BA;
+}
+
+td, td div{
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+}
+
+td{
+    padding: 5px; 
+    border-radius: 50%;
+    background-color: #FFF;
+}
+
+.zuta{
+    background-color: #FF0;
+}
+
+.crvena{
+    background-color: #F00;
+}
