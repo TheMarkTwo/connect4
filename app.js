@@ -19,10 +19,12 @@ function selectCell(j){
             if(checkWin("zuta")){
                 alert("Zuti je pobijedio!");
                 clearBoard()
+                updateScore(0, parseInt(document.getElementById("player1Score").innerHTML) + 1);
             }
             else if(checkWin("crvena")){
                 alert("Crveni je pobijedio!");
                 clearBoard()
+                updateScore(1, parseInt(document.getElementById("player2Score").innerHTML) + 1);
             }
             else{
                 turn++;
@@ -78,4 +80,19 @@ function checkWin(boja){
             }
         }
     }
+}
+
+function updateScore(player, score){
+    if(player == 0){
+        document.getElementById("player1Score").innerHTML = score;
+    }
+    else{
+        document.getElementById("player2Score").innerHTML = score;
+    }
+}
+
+function resetGame(){
+    clearBoard();
+    updateScore(0, 0);
+    updateScore(1, 0);
 }
