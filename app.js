@@ -15,6 +15,7 @@ function selectCell(j){
                 polje.classList.add("crvena");
                 player = 0;
             }
+            highlightPlayer(player);
 
             if(checkWin("zuta")){
                 alert("Zuti je pobijedio!");
@@ -95,4 +96,16 @@ function resetGame(){
     clearBoard();
     updateScore(0, 0);
     updateScore(1, 0);
+    document.getElementById("player1").classList.remove("active");
+}
+
+function highlightPlayer(player){
+    if(player == 0){
+        document.getElementById("player1").classList.add("active");
+        document.getElementById("player2").classList.remove("active");
+    }
+    else{
+        document.getElementById("player1").classList.remove("active");
+        document.getElementById("player2").classList.add("active");
+    }
 }

@@ -1,12 +1,16 @@
 table{
     margin: 0 auto;
     background-color: #0D98BA;
+    border-radius: 10px;
+    border: 3px solid #000;
 }
 
 td, td div{
     width: 100px;
     height: 100px;
     margin: 0%;
+    border-radius: 10px;
+    border: 3px solid #000;
 }
 
 td{
@@ -45,4 +49,10 @@ td{
     margin: 0 auto;
     width: 20%;
     font-family: 'Arial';
+}
+
+/* make active class for current player */
+.active{
+    /* change text color */
+    color: #0f0;
 }
