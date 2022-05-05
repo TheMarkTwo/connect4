@@ -21,11 +21,13 @@ function selectCell(j){
                 alert("Zuti je pobijedio!");
                 clearBoard()
                 updateScore(0, parseInt(document.getElementById("player1Score").innerHTML) + 1);
+                player = 1;
             }
             else if(checkWin("crvena")){
                 alert("Crveni je pobijedio!");
                 clearBoard()
                 updateScore(1, parseInt(document.getElementById("player2Score").innerHTML) + 1);
+                player = 0;
             }
             else{
                 turn++;
@@ -96,7 +98,8 @@ function resetGame(){
     clearBoard();
     updateScore(0, 0);
     updateScore(1, 0);
-    document.getElementById("player1").classList.remove("active");
+    document.getElementById("player1").classList.add("active");
+    document.getElementById("player2").classList.remove("active");
 }
 
 function highlightPlayer(player){
