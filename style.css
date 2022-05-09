@@ -51,8 +51,6 @@ td{
     font-family: 'Arial';
 }
 
-/* make active class for current player */
 .active{
-    /* change text color */
     color: #0f0;
 }

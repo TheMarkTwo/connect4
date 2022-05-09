@@ -42,6 +42,38 @@ function selectCell(j){
     }
 }
 
+
+function checkWin(color){
+    for(let i = 0; i <= 5; i++){
+        for(let j = 0; j <= 6; j++){
+            //horizontalno
+            if(j <= 3){ 
+                if(document.getElementById(`a${i}/${j}`).classList.contains(color) && document.getElementById(`a${i}/${j+1}`).classList.contains(color) && document.getElementById(`a${i}/${j+2}`).classList.contains(color) && document.getElementById(`a${i}/${j+3}`).classList.contains(color)){
+                    return true;
+                }
+            }
+            //vertikalno
+            if(i <= 2){
+                if(document.getElementById(`a${i}/${j}`).classList.contains(color) && document.getElementById(`a${i+1}/${j}`).classList.contains(color) && document.getElementById(`a${i+2}/${j}`).classList.contains(color) && document.getElementById(`a${i+3}/${j}`).classList.contains(color)){
+                    return true;
+                }
+            }
+            //diagonalno
+            if(i <= 2 && j <= 3){
+                if(document.getElementById(`a${i}/${j}`).classList.contains(color) && document.getElementById(`a${i+1}/${j+1}`).classList.contains(color) && document.getElementById(`a${i+2}/${j+2}`).classList.contains(color) && document.getElementById(`a${i+3}/${j+3}`).classList.contains(color)){
+                    return true;
+                }
+            }
+            //diagonalno
+            if(i <= 2 && j >= 3){
+                if(document.getElementById(`a${i}/${j}`).classList.contains(color) && document.getElementById(`a${i+1}/${j-1}`).classList.contains(color) && document.getElementById(`a${i+2}/${j-2}`).classList.contains(color) && document.getElementById(`a${i+3}/${j-3}`).classList.contains(color)){
+                    return true;
+                }
+            }
+        }
+    }
+}
+
 function clearBoard(){  
     for(let i = 0; i <= 5; i++){
         for(let j = 0; j <= 6; j++){
@@ -52,37 +84,6 @@ function clearBoard(){
     }
     player = 0;
     turn = 0;
-}
-
-function checkWin(boja){
-    for(let i = 0; i <= 5; i++){
-        for(let j = 0; j <= 6; j++){
-            //horizontalno
-            if(j <= 3){ 
-                if(document.getElementById(`a${i}/${j}`).classList.contains(boja) && document.getElementById(`a${i}/${j+1}`).classList.contains(boja) && document.getElementById(`a${i}/${j+2}`).classList.contains(boja) && document.getElementById(`a${i}/${j+3}`).classList.contains(boja)){
-                    return true;
-                }
-            }
-            //vertikalno
-            if(i <= 2){
-                if(document.getElementById(`a${i}/${j}`).classList.contains(boja) && document.getElementById(`a${i+1}/${j}`).classList.contains(boja) && document.getElementById(`a${i+2}/${j}`).classList.contains(boja) && document.getElementById(`a${i+3}/${j}`).classList.contains(boja)){
-                    return true;
-                }
-            }
-            //diagonalno
-            if(i <= 2 && j <= 3){
-                if(document.getElementById(`a${i}/${j}`).classList.contains(boja) && document.getElementById(`a${i+1}/${j+1}`).classList.contains(boja) && document.getElementById(`a${i+2}/${j+2}`).classList.contains(boja) && document.getElementById(`a${i+3}/${j+3}`).classList.contains(boja)){
-                    return true;
-                }
-            }
-            //diagonalno
-            if(i <= 2 && j >= 3){
-                if(document.getElementById(`a${i}/${j}`).classList.contains(boja) && document.getElementById(`a${i+1}/${j-1}`).classList.contains(boja) && document.getElementById(`a${i+2}/${j-2}`).classList.contains(boja) && document.getElementById(`a${i+3}/${j-3}`).classList.contains(boja)){
-                    return true;
-                }
-            }
-        }
-    }
 }
 
 function updateScore(player, score){
