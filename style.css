@@ -1,30 +1,48 @@
-table{
+/* start screen */
+#player1Name, #player2Name{
+    width: 20%;
+    height: 100%;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    padding: 6px 12px;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #555;
+    outline: none;
+}
+
+/* game */
+#resetka{
     margin: 0 auto;
     background-color: #0D98BA;
     border-radius: 10px;
     border: 3px solid #000;
 }
 
-td, td div{
+#resetka tr td{
     width: 100px;
     height: 100px;
     margin: 0%;
     border-radius: 10px;
     border: 3px solid #000;
+    
 }
 
-td{
+#resetka tr td{
     padding: 5px; 
     border-radius: 50%;
     background-color: #FFF;
+    border-radius: 50%;
 }
 
 .zuta{
-    background-color: #FF0;
+    background-color: #FF0 !important;
 }
 
 .crvena{
-    background-color: #F00;
+    background-color: #F00 !important;
 }
 
 #score{
@@ -53,4 +71,22 @@ td{
 
 .active{
     color: #0f0;
+}
+
+#scoreboard{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    padding: 6px 12px;
+    font-size: 1.25vw;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #555;
+    outline: none;
+    text-align: center;
 }

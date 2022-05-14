@@ -1,5 +1,8 @@
 var player = 0;
 var turn = 0;
+let names = [];
+console.log(names);
+
 function selectCell(j){
     for(let i = 5; i >= 0; i--){
         let polje = document.getElementById(`a${i}/${j}`);
@@ -41,7 +44,6 @@ function selectCell(j){
         }
     }
 }
-
 
 function checkWin(color){
     for(let i = 0; i <= 5; i++){
@@ -112,4 +114,22 @@ function highlightPlayer(player){
         document.getElementById("player1").classList.remove("active");
         document.getElementById("player2").classList.add("active");
     }
+}
+
+function getPlayerNames(){
+    // alert("her");
+    let player1 = document.getElementById("player1Name").value;
+    let player2 = document.getElementById("player2Name").value;
+    if (player1 == "" || player1 == null){
+        player1 = "Zuti";
+    }
+    if (player2 == "" || player2 == null){
+        player2 = "Crveni";
+    }
+    names = [player1, player2];
+}
+
+function setPlayerNames(){
+    document.getElementById("player1").innerHTML = names[0] + ": <span id='player1Score'>0</span>";
+    document.getElementById("player2").innerHTML = names[1] + ": <span id='player2Score'>0</span>";
 }
