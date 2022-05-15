@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="app.js"></script>
     <title>Connect4</title>
 </head>
 <body>
-    <form action="load.php" method="POST">
+    <form action="load.php" method="POST" id="players">
         <input type="text" name="player1" id="player1Name" placeholder="Ime igrača 1">
         <input type="text" name="player2" id="player2Name" placeholder="Ime igrača 2">
-        <input type="submit" value="Start" onclick="getPlayerNames()">
+        <input type="submit" value="Start">
     </form>
 </body>
 </html>

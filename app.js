@@ -1,7 +1,6 @@
 var player = 0;
 var turn = 0;
 let names = [];
-console.log(names);
 
 function selectCell(j){
     for(let i = 5; i >= 0; i--){
@@ -24,17 +23,18 @@ function selectCell(j){
                 alert("Zuti je pobijedio!");
                 clearBoard()
                 updateScore(0, parseInt(document.getElementById("player1Score").innerHTML) + 1);
+                UpdatePlayerScore("matko");
                 player = 1;
             }
             else if(checkWin("crvena")){
                 alert("Crveni je pobijedio!");
                 clearBoard()
                 updateScore(1, parseInt(document.getElementById("player2Score").innerHTML) + 1);
+                UpdatePlayerScore("Crveni");
                 player = 0;
             }
             else{
                 turn++;
-                console.log(turn);
                 if(turn == 42){
                     alert("Nerijeseno!");
                     clearBoard()
@@ -117,7 +117,6 @@ function highlightPlayer(player){
 }
 
 function getPlayerNames(){
-    // alert("her");
     let player1 = document.getElementById("player1Name").value;
     let player2 = document.getElementById("player2Name").value;
     if (player1 == "" || player1 == null){
@@ -127,9 +126,22 @@ function getPlayerNames(){
         player2 = "Crveni";
     }
     names = [player1, player2];
+    console.log(names);
 }
 
 function setPlayerNames(){
     document.getElementById("player1").innerHTML = names[0] + ": <span id='player1Score'>0</span>";
     document.getElementById("player2").innerHTML = names[1] + ": <span id='player2Score'>0</span>";
+}
+
+function UpdatePlayerScore(player) {
+    $.ajax({
+        url:"update.php",
+        type: "post",
+        dataType: 'json',
+        data: {player: player},
+        success:function(result){
+            console.log(result);
+        }
+    });
 }

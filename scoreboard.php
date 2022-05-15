@@ -6,10 +6,10 @@ if(!$conn){
 echo "<div id='scoreboard'>";
 echo "<table id='scoreboardTable'>";
 echo "<tr>";
-echo "<th>Player</th>";
-echo "<th>Total Wins</th>";
+echo "<th>Igrac</th>";
+echo "<th>Broj pobjeda</th>";
 echo "</tr>";
-$sql = "SELECT * FROM scoreboard";
+$sql = "SELECT * FROM scoreboard WHERE TotalWins > 0 ORDER BY TotalWins DESC ";
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)){
     echo "<tr>";

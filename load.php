@@ -9,14 +9,14 @@ $player2 = $_POST['player2'];
 
 $sql = "SELECT * FROM scoreboard WHERE PlayerName = '$player1'";
 $result = mysqli_query($conn, $sql);
-if(mysqli_num_rows($result) === 0){
+if(mysqli_num_rows($result) === 0 && $player1 != ""){
     $sql = "INSERT INTO scoreboard (PlayerName, TotalWins) VALUES ('$player1', 0)";
     $conn->query($sql);
 }
 
 $sql = "SELECT * FROM scoreboard WHERE PlayerName = '$player2'";
 $result = mysqli_query($conn, $sql);
-if(mysqli_num_rows($result) === 0){
+if(mysqli_num_rows($result) === 0 && $player2 != ""){
     $sql = "INSERT INTO scoreboard (PlayerName, TotalWins) VALUES ('$player2', 0)";
     $conn->query($sql);
 }
