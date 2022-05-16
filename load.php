@@ -6,6 +6,8 @@ if(!$conn){
 
 $player1 = $_POST['player1'];
 $player2 = $_POST['player2'];
+$data = [$player1, $player2];
+echo json_encode($data);
 
 $sql = "SELECT * FROM scoreboard WHERE PlayerName = '$player1'";
 $result = mysqli_query($conn, $sql);

@@ -1,6 +1,6 @@
 var player = 0;
 var turn = 0;
-let names = [];
+let names = getPlayerNamesFromStorage();
 
 function selectCell(j){
     for(let i = 5; i >= 0; i--){
@@ -23,14 +23,14 @@ function selectCell(j){
                 alert("Zuti je pobijedio!");
                 clearBoard()
                 updateScore(0, parseInt(document.getElementById("player1Score").innerHTML) + 1);
-                UpdatePlayerScore("matko");
+                UpdatePlayerScore(names[0]);
                 player = 1;
             }
             else if(checkWin("crvena")){
                 alert("Crveni je pobijedio!");
                 clearBoard()
                 updateScore(1, parseInt(document.getElementById("player2Score").innerHTML) + 1);
-                UpdatePlayerScore("Crveni");
+                UpdatePlayerScore(names[1]);
                 player = 0;
             }
             else{
@@ -76,7 +76,7 @@ function checkWin(color){
     }
 }
 
-function clearBoard(){  
+function clearBoard(){
     for(let i = 0; i <= 5; i++){
         for(let j = 0; j <= 6; j++){
             let polje = document.getElementById(`a${i}/${j}`);
@@ -116,17 +116,21 @@ function highlightPlayer(player){
     }
 }
 
-function getPlayerNames(){
-    let player1 = document.getElementById("player1Name").value;
-    let player2 = document.getElementById("player2Name").value;
-    if (player1 == "" || player1 == null){
-        player1 = "Zuti";
+function getPlayerNamesFromStorage(){
+    let _names = [];
+    if(localStorage.getItem("player1") != null && localStorage.getItem("player2") != null){
+        _names[0] = localStorage.getItem("player1");
     }
-    if (player2 == "" || player2 == null){
-        player2 = "Crveni";
+    else{
+        _names[0] = "Zuti";
     }
-    names = [player1, player2];
-    console.log(names);
+    if(localStorage.getItem("player2") != null && localStorage.getItem("player2") != ""){
+        _names[1] = localStorage.getItem("player2");
+    }
+    else{
+        _names[1] = "Crveni";
+    }
+    return _names;
 }
 
 function setPlayerNames(){
@@ -145,3 +149,5 @@ function UpdatePlayerScore(player) {
         }
     });
 }
+
+
