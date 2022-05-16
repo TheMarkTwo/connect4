@@ -16,7 +16,6 @@
         <input type="submit" value="Start">
         <script>
             $("#players").submit(function(e){
-                //e.preventDefault();
                 localStorage.setItem("player1", $("#player1Name").val());
                 localStorage.setItem("player2", $("#player2Name").val());
             });

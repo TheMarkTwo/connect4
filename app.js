@@ -149,5 +149,3 @@ function UpdatePlayerScore(player) {
         }
     });
 }
-
-
